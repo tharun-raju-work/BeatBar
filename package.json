@@ -1,0 +1,79 @@
+{
+  "name": "beatbar",
+  "version": "0.1.0",
+  "description": "Production-ready menu bar controller for YouTube Music with Electron and Chrome Extension",
+  "main": "app/main.js",
+  "author": "BeatBar Contributors",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/beatbar.git"
+  },
+  "keywords": [
+    "electron",
+    "youtube-music",
+    "menu-bar",
+    "music-player",
+    "macos",
+    "chrome-extension"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "NODE_ENV=development electron app/main.js",
+    "start:prod": "NODE_ENV=production electron app/main.js",
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "clean": "rm -rf dist",
+    "lint": "echo 'Linting not configured. Consider adding ESLint.'",
+    "test": "echo 'Tests not configured. Consider adding test framework.'"
+  },
+  "build": {
+    "appId": "com.beatbar.app",
+    "productName": "BeatBar",
+    "copyright": "Copyright © 2024 BeatBar",
+    "mac": {
+      "category": "public.app-category.music",
+      "target": [
+        "dmg"
+      ],
+      "icon": "app/icon23.png",
+      "hardenedRuntime": true,
+      "entitlements": null,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "sign": false,
+      "title": "${productName} ${version}"
+    },
+    "files": [
+      "app/**/*",
+      "node_modules/**/*",
+      "package.json",
+      "!app/**/*.map",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}",
+      "!**/node_modules/*.d.ts",
+      "!**/node_modules/.bin",
+      "!**/*.{iml,o,hprof,orig,pyc,pyo,rbc,swp,csproj,sln,xproj}",
+      "!.editorconfig",
+      "!**/._*",
+      "!**/{.DS_Store,.git,.hg,.svn,CVS,RCS,SCCS,.gitignore,.gitattributes}",
+      "!**/{__pycache__,thumbs.db,.flowconfig,.idea,.vs,.nyc_output}",
+      "!**/{appveyor.yml,.travis.yml,circle.yml}",
+      "!**/{npm-debug.log,yarn.lock,.yarn-integrity,.yarn-metadata.json}"
+    ],
+    "directories": {
+      "output": "dist"
+    }
+  },
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "dependencies": {
+    "ws": "^8.19.0"
+  }
+}

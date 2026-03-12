@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>BeatBar</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div class="card">
+
+    <!-- Album art -->
+    <div class="art-wrap">
+      <img id="art" class="art" />
+    </div>
+
+    <!-- Song info -->
+    <div class="info">
+      <div id="title" class="title">—</div>
+      <div id="artist" class="artist">—</div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="prev" title="Previous">⏮</button>
+      <button id="play" class="play" title="Play / Pause">⏯</button>
+      <button id="next" title="Next">⏭</button>
+      <button id="search" title="Search">🔍</button>
+    </div>
+
+    <!-- 🔍 SEARCH AREA (NEW) -->
+    <div id="search-box" class="search-box" hidden>
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Search YouTube Music…"
+        autocomplete="off"
+      />
+      <div id="results"></div>
+    </div>
+
+  </div>
+
+  <script src="./renderer.js"></script>
+</body>
+</html>
